@@ -1,3 +1,5 @@
+import quopri
+
 import imaplib
 import email
 imaplib.IMAP4.debug = imaplib.IMAP4_SSL.debug = 1
@@ -21,7 +23,8 @@ def view_emails():
                 continue
             if part.get('Content-Disposition') is None:
                 continue
-            filename = part.get_filename()
+            filename = quopri.decodestring(part.get_filename())
+
             data = part.get_payload(decode=True)
             if not data:
                 continue
