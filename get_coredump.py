@@ -14,8 +14,11 @@ def view_emails():
         typ, data = con.fetch(num, '(RFC822)')
         c +=1
         text = data[0][1]
-        # msg = email.message_from_string(data[0][1])
-        msg = email.message_from_bytes(data[0][1])
+        try:
+            msg = email.message_from_string(data[0][1])
+        except TypeError:
+            msg = email.message_from_bytes(data[0][1])
+
         for part in msg.walk():
             if part.get_content_maintype() == 'multipart':
                 continue
