@@ -39,6 +39,8 @@ def view_emails():
     con.close()
     con.logout()
 
+
+
 # def SaveLstToFile(filename, lst):
 #     file = open(filename, 'w')
 #

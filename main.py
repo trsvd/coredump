@@ -1,7 +1,15 @@
 import get_coredump
+import mail_client
+import dlAttachments
+# import attachments
 
 def main():
-    get_coredump.view_emails()
+    # client = mail_client.MailClient()
+    # client.ReadLatest(False)
+
+    dlAttachments.view_emails()
+    # attachments.main_attach
+    # get_coredump.view_emails()
     print("dsdsdsds")
 
 
